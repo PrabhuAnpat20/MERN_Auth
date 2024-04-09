@@ -1,5 +1,5 @@
 const express=require('express')
-const Workout=require('../models/workoutModel')
+
 const router=express.Router()
 const {
     createWorkout,
@@ -10,6 +10,9 @@ const {
 }
 =require('../controllers/workoutController')
 
+// auth
+const requireAuth =require('../middlewares/requireAuth')
+router.use(requireAuth)
 
 // GET all workouts
 router.get('/',getWorkouts)
